@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_admin";
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Add Exam</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                     <li class="breadcrumb-item "> Exam</li>
+                    <li class="breadcrumb-item active"> Add exams</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+               <div class="card">
+                         <div class="card-body">
+                         <div class="card-title">Exam Form</div>
+                         <hr>
+                         <form>
+                           
+                             
+                             <div class="form-group">
+                                 <label for="input-3">Exam Name</label>
+                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-6">Type</label>
+                                 <select class="form-control" id="input-6" placeholder="Enter type" name="type" required list="type">
+                                     <datalist id="type">
+                                         <option > Terminal </option>
+                                         <option > Final</option>
+                                     </datalist>
+                                 </select>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-1">Program</label>
+                                 <input type="text" class="form-control" id="input-1" placeholder="Enter Program Name" name="program" required list="faculty">
+                                 <datalist id="faculty">
+                                     <option > boston </option>
+                                     <option > Cambridge</option>
+                                 </datalist>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-2">Semester/year</label>
+                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="semyear" required list="teacher">
+                                 <datalist id="teacher">
+                                     <option value="Boston"/>
+                                     <option value="Cambridge"/>
+                                 </datalist>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-11">Start date</label>
+                                 <input type="date" class="form-control" id="input-11" placeholder="Enter dob" name="start_date" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-12">End date</label>
+                                 <input type="date" class="form-control" id="input-12" placeholder="Enter dob" name="end_date" required>
+                             </div>
+                             
+                             
+                             
+                             
+                                 
+                              
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <button type="submit" class="btn btn-light px-5"> Add</button>
+                            
+                         </form>
+                       </div>
+                       </div>
+                    </div>
+
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+   
+
+    <!-- /.container-fluid -->
+</section>

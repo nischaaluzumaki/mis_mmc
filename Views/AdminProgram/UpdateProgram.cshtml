@@ -1,0 +1,100 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_admin";
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Update Program</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                     <li class="breadcrumb-item "> Program</li>
+                    <li class="breadcrumb-item active"> Update Program</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+               <div class="card">
+                         <div class="card-body">
+                         <div class="card-title">Update Program Form</div>
+                         <hr>
+                         <form>
+                             <div class="form-group">
+                                 <label for="input-1">Type</label>
+                                 <select class="form-control" id="input-1" placeholder="Enter type" name="type" required list="faculty">
+                                 <datalist id="faculty">
+                                     <option > Bachelor </option>
+                                     <option > Master</option>
+                                 </datalist>
+                                 </select>
+                             </div>
+                             
+                             <div class="form-group">
+                                 <label for="input-2">Faculty</label>
+                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="faculty" required list="teacher">
+                                 <datalist id="teacher">
+                                     <option value="Boston"/>
+                                     <option value="Cambridge"/>
+                                 </datalist>
+                             </div>
+                             
+                             <div class="form-group">
+                                 <label for="input-3">Program Name</label>
+                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-4">Description</label>
+                                 <input type="text" class="form-control" id="input-4" placeholder="Enter Description" name="description" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-5">File(syllabus)</label>
+                                 <input type="file" class="form-control" id="input-5" name="file">
+                             </div>
+                             <div class="form-group">
+                                 <div class="form-group">
+                                     <label for="input-6">System</label>
+                                     <select class="form-control" id="input-6" placeholder="Enter type" name="system" required list="system">
+                                         <datalist id="system">
+                                             <option > Yearly </option>
+                                             <option > Semester</option>
+                                         </datalist>
+                                     </select>
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="input-7">Number of year/sem</label>
+                                     <input type="number" class="form-control" id="input-7" placeholder="Enter number of year/sem" name="yearsem" required>
+                                 </div>
+                                 <button type="submit" class="btn btn-light px-5"> Update</button>
+                             </div>
+                         </form>
+                       </div>
+                       </div>
+                    </div>
+
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+   
+
+    <!-- /.container-fluid -->
+</section>

@@ -1,0 +1,107 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_admin";
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Add Student</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                     <li class="breadcrumb-item "> Student</li>
+                    <li class="breadcrumb-item active"> Add Student</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+               <div class="card">
+                         <div class="card-body">
+                         <div class="card-title">Student Regestration Form</div>
+                         <hr>
+                         <form>
+                           
+                             
+                             <div class="form-group">
+                                 <label for="input-3">Full Name</label>
+                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-4">Email</label>
+                                 <input type="email" class="form-control" id="input-4" placeholder="Enter Email" name="email" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="input-11">Date of Birth</label>
+                                 <input type="date" class="form-control" id="input-11" placeholder="Enter dob" name="dob" required>
+                                 </div>
+                             <div class="form-group">
+                                 <label for="input-5">File(photo)</label>
+                                 <input type="file" class="form-control" id="input-5" name="file">
+                             </div>
+                             <div class="form-group">
+                                 <div class="form-group">
+                                     <label for="input-6">Gender</label>
+                                     <select class="form-control" id="input-6" placeholder="Enter gender" name="gender" required list="system">
+                                         <datalist id="system">
+                                             <option > Male </option>
+                                             <option > Female</option>
+                                         </datalist>
+                                     </select>
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="input-7">Phone Number</label>
+                                     <input type="number" class="form-control" id="input-7" placeholder="Enter phone number" name="phone" required>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label for="input-8">Address</label>
+                                     <input type="text" class="form-control" id="input-8" placeholder="Enter Address" name="name" required>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label for="input-9">Password</label>
+                                     <input type="password" class="form-control" id="input-9" placeholder="Enter Password" name="password" required>
+                                 </div>
+                                 
+                                 <div class="form-group">
+                                     <label for="input-10">Confirm Password</label>
+                                     <input type="password" class="form-control" id="input-10" placeholder="Enter password" name="password2" required>
+                                 </div>
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <button type="submit" class="btn btn-light px-5"> Register</button>
+                             </div>
+                         </form>
+                       </div>
+                       </div>
+                    </div>
+
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+   
+
+    <!-- /.container-fluid -->
+</section>

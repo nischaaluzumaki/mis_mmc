@@ -1,0 +1,123 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_admin";
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Faculties</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item active"> Faculty</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                       
+                        <form class="search-bar" style="float: left; ">
+                            <input type="text" class="form-control" placeholder="Enter keywords" style="float: left">
+                            <a href="">
+                                <i class="icon-magnifier"></i>
+                            </a>
+                        </form>
+                        <a style="margin-left: 20px;" asp-controller="AdminFaculty" asp-action="AddFaculty" >
+                            <button type="button" class="btn btn-primary">Add new</button>
+                        </a>
+                        
+                        <a style="margin-left: 20px;" asp-controller="AdminFaculty" asp-action="AppointHod" >
+                            <button type="button" class="btn btn-primary">Appoint H.O.D</button>
+                        </a>
+                           <a style="margin-left: 20px;" asp-controller="AdminFaculty" asp-action="UpdateHod" >
+                                              <button type="button" class="btn btn-primary">Update H.O.D</button>
+                                                </a>
+                                               
+                        
+
+                    </div>
+                   
+
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                       
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>File</th>
+                                <th>Head of Faculty</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            
+                                  @{
+                                                 int i = 1;
+                                               }
+                                               @foreach (var item in ViewBag.data)
+                                               
+                                               {
+                                                   <tr>
+                                                   
+                                                       <td>@i</td>
+                                                       <td>@item.name</td>
+                                                       <td>@item.description</td>
+                                                       <td><a href="@item.file" style="height: 70px; width: 70px;">@item.file</a></td>
+                                                       <td>@item.hod</td>
+
+
+
+                                                       <td>
+                                                           <a asp-action="UpdateFaculty"asp-controller="AdminFaculty" asp-route-id="@item.s_no">
+                                                               <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
+                                                           </a>
+                                                           <a onclick="return confirm('Are you sure want to delete? ')" asp-action="DeleteFaculty" asp-route-id="@item.s_no">
+                                                               <button type="button" class="btn btn-danger">Delete</button>
+                                                           </a>
+                                                       </td>
+                                                   </tr>
+                                                   i++;
+                                               }
+                           
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.container-fluid -->
+</section>

@@ -1,0 +1,60 @@
+@model IEnumerable<mis_mmc.Models.CollegeDetails>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.college_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone_number_one)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.college_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_number_one)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.s_no">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.s_no">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.s_no">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

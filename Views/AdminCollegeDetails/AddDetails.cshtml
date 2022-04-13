@@ -1,0 +1,85 @@
+@model mis_mmc.Models.CollegeDetails
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_admin";
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Add College Details</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Admin</a>
+                    </li>
+                    <li class="breadcrumb-item "> College Details</li>
+                    <li class="breadcrumb-item active"> Add College details</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">Coleege details Form</div>
+                        <hr>
+                        <form asp-action="AddDetails" enctype="multipart/form-data">
+
+                            
+                            <div class="form-group">
+                                <label asp-for="college_name" class="control-label"></label>
+                                <input asp-for="college_name" class="form-control"/>
+                                <span asp-validation-for="college_name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="phone_number_one" class="control-label"></label>
+                                <input asp-for="phone_number_one" class="form-control"/>
+                                <span asp-validation-for="phone_number_one" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="email" class="control-label"></label>
+                                <input asp-for="email" class="form-control"/>
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="logo" class="control-label">Logo</label>
+                                <input id="logo"  type="file" class="form-control-file" name="file"/>
+                               
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="address" class="control-label"></label>
+                                <input asp-for="address" class="form-control"/>
+                                <span asp-validation-for="address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary"/>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.card -->
+
+
+            <!-- /.card-header -->
+
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+
+    <!-- /.container-fluid -->
+</section>

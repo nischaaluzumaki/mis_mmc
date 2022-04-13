@@ -1,0 +1,49 @@
+@model mis_mmc.Models.CollegeDetails
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout_admin.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CollegeDetails</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.college_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.college_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.phone_number_one)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.phone_number_one)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.logo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.logo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.address)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.s_no">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
