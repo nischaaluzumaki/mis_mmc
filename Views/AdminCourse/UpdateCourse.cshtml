@@ -1,8 +1,10 @@
+@model mis_mmc.Models.CourseModel
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout_admin";
 
 }
+
 
 <section class="content-header">
     <div class="container-fluid">
@@ -31,32 +33,29 @@
                          <div class="card-body">
                          <div class="card-title">Update Course Form</div>
                          <hr>
-                         <form>
+                         <form asp-action="UpdateCourse" enctype="multipart/form-data">
+                             <input type="hidden" asp-for="s_no" />
                              <div class="form-group">
-                                 <label for="input-1">Program</label>
-                                 <input type="text" class="form-control" id="input-1" placeholder="Enter Program Name" name="faculty" required list="faculty">
-                                 <datalist id="faculty">
-                                     <option > boston </option>
-                                     <option > Cambridge</option>
-                                 </datalist>
+                                 <label asp-for="pid" class="control-label">Program</label>
+                                 <select asp-for="pid" class ="form-control" asp-items="ViewBag.Program"></select>
                              </div>
                              
                              <div class="form-group">
                                  <label for="input-2">Semester/year</label>
-                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="teacher" required list="teacher">
+                                 <input type="number" class="form-control" id="input-2" placeholder="Enter semester/year" name="sem_year" required list="teacher" value="@ViewBag.data.sem_year">
                                  <datalist id="teacher">
                                      <option value="Boston"/>
                                      <option value="Cambridge"/>
                                  </datalist>
                              </div>
-                             
+
                              <div class="form-group">
                                  <label for="input-3">Course Name</label>
-                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required>
+                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required value="@ViewBag.data.name">
                              </div>
                              <div class="form-group">
                                  <label for="input-4">Description</label>
-                                 <input type="text" class="form-control" id="input-4" placeholder="Enter Description" name="description" required>
+                                 <input type="text" class="form-control" id="input-4" placeholder="Enter Description" name="description" required value="@ViewBag.data.description">
                              </div>
                              <div class="form-group">
                                  <label for="input-5">File(syllabus)</label>

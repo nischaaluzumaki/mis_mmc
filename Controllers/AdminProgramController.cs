@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using mis_mmc.Models;
 
 namespace mis_mmc.Controllers;
@@ -22,7 +24,7 @@ public class AdminProgramController : Controller
     }
     public IActionResult Index()
     {
-        var data = _context.ProgramModels.ToList();
+        var data = _context.ProgramModels.Include(f=>f.FacultyModel).ToList();
         ViewBag.data = data;
         return View();
     }
@@ -30,6 +32,7 @@ public class AdminProgramController : Controller
     {
         var data = _context.FacultyModels.ToList();
         ViewBag.data = data;
+        ViewData["Faculty"] = new SelectList(_context.Set<FacultyModel>(), "s_no", "name");
         
         return View();
     }
@@ -46,9 +49,50 @@ public class AdminProgramController : Controller
         return RedirectToAction("Index");
         
     }
-    public IActionResult UpdateProgram()
+    public async Task<IActionResult> UpdateProgram(int id)
     {
-        return View();
+        var programModel= await _context.ProgramModels.FindAsync(id);
+        ViewBag.data = programModel;
+        ViewData["Faculty"] = new SelectList(_context.Set<FacultyModel>(), "s_no", "name");
+        return View(programModel);
+        
+    }
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> UpdateProgram(int id, ProgramModel programModel, IFormFile? file)
+    {
+        if (file == null)
+        {
+            
+            var program = _context.ProgramModels.Where(p => p.s_no == id).FirstOrDefault();
+            program.name = programModel.name;
+            program.description = programModel.description;
+            program.sem_year = programModel.sem_year;
+            program.type = programModel.type;
+            program.FacultyModel = programModel.FacultyModel;
+           
+            await _context.SaveChangesAsync();
+          
+        }
+        else
+        {
+
+
+            string folder = "file/";
+            programModel.file = await UploadImage(folder, file);
+            _context.ProgramModels.Update(programModel);
+            await _context.SaveChangesAsync();
+        }
+
+        return RedirectToAction("Index"); 
+    }
+
+    public IActionResult DeleteProgram(int id)
+    {
+        var data = _context.ProgramModels.Find(id);
+        _context.ProgramModels.Remove(data);
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
     public IActionResult AppointDirector()
     {

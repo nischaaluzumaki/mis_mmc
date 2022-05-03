@@ -48,6 +48,40 @@ namespace mis_mmc.Migrations
                     b.ToTable("CollegeDetails");
                 });
 
+            modelBuilder.Entity("mis_mmc.Models.CourseModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("file")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("lecturer")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("pid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("sem_year")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("s_no");
+
+                    b.HasIndex("pid");
+
+                    b.ToTable("CourseModels");
+                });
+
             modelBuilder.Entity("mis_mmc.Models.FacultyModel", b =>
                 {
                     b.Property<int>("s_no")
@@ -114,20 +148,36 @@ namespace mis_mmc.Migrations
                     b.ToTable("ProgramModels");
                 });
 
+            modelBuilder.Entity("mis_mmc.Models.CourseModel", b =>
+                {
+                    b.HasOne("mis_mmc.Models.ProgramModel", "ProgramModel")
+                        .WithMany("CourseModels")
+                        .HasForeignKey("pid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProgramModel");
+                });
+
             modelBuilder.Entity("mis_mmc.Models.ProgramModel", b =>
                 {
-                    b.HasOne("mis_mmc.Models.FacultyModel", "faculty")
+                    b.HasOne("mis_mmc.Models.FacultyModel", "FacultyModel")
                         .WithMany("ProgramModels")
                         .HasForeignKey("fid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("faculty");
+                    b.Navigation("FacultyModel");
                 });
 
             modelBuilder.Entity("mis_mmc.Models.FacultyModel", b =>
                 {
                     b.Navigation("ProgramModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.ProgramModel", b =>
+                {
+                    b.Navigation("CourseModels");
                 });
 #pragma warning restore 612, 618
         }

@@ -83,8 +83,8 @@
 
                                     <td>@i</td>
                                     <td>@item.type</td>
-                                    <td>@item.faculty</td>
-                                    <td>@item.name;</td>
+                                    <td>@item.FacultyModel.name</td>
+                                    <td>@item.name</td>
                                     <td>@item.description</td>
                                     <td>@item.system</td>
                                     <td>@item.sem_year</td>
@@ -94,10 +94,10 @@
 
 
                                     <td>
-                                        <a asp-controller="AdminProgram"asp-action="UpdateProgram">
+                                        <a asp-controller="AdminProgram"asp-action="UpdateProgram" asp-route-id="@item.s_no">
                                             <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
                                         </a>
-                                        <a onclick="return confirm('Are you sure want to delete? ')">
+                                        <a asp-action="DeleteProgram" asp-route-id="@item.s_no" onclick="return confirm('Are you sure want to delete? ')">
                                             <button type="button" class="btn btn-danger">Delete</button>
                                         </a>
                                     </td>

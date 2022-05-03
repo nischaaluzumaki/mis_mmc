@@ -86,11 +86,13 @@ public class AdminFacultyController : Controller
         {
             return View();
         }
-
+     [HttpPost]
+     
      public IActionResult DeleteFaculty(int id)
      {
-         var data = _context.FacultyModels.Find(id);
-         _context.FacultyModels.Remove(data);
+        var d = _context.FacultyModels.Find(id);
+         _context.FacultyModels.Remove(d);
+         _context.SaveChanges();
          return RedirectToAction("Index");
      }
     

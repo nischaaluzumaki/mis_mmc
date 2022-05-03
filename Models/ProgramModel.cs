@@ -16,7 +16,9 @@ public class ProgramModel
     public string system { get; set; }
     public string? director { get; set; }
     public int sem_year { get; set; }
+    public virtual ICollection<CourseModel> CourseModels { get; set; }
     [ForeignKey("fid")]
-    public FacultyModel faculty { get; set; }  
+    public virtual FacultyModel FacultyModel { get; set; }  
     public int fid { get; set; }
+    
 }

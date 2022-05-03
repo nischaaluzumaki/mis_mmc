@@ -43,18 +43,12 @@
                                      </datalist>
                                  </select>
                              </div>
+                              <div class="form-group">
+                                   <label asp-for="fid" class="control-label">Faculty</label>
+                                   <select asp-for="fid" class ="form-control" asp-items="ViewBag.Faculty"></select>
+                              </div>
                              
-                             <div class="form-group">
-                                 <label for="input-2">Faculty</label>
-                                 <input asp-for="fid" type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="faculty" required list="teacher">
-                                 <datalist id="teacher">
-                                        @foreach (var item in ViewBag.data)
-                                     
-                                                                               {
-                                                                                   <option > @item.name </option>
-                                                                               }
-                                 </datalist>
-                             </div>
+                           
                              
                              <div class="form-group">
                                  <label for="input-3">Program Name</label>
@@ -80,7 +74,7 @@
                                  </div>
                                  <div class="form-group">
                                      <label for="input-7">Number of year/sem</label>
-                                     <input type="number" class="form-control" id="input-7" placeholder="Enter number of year/sem" name="yearsem" required>
+                                     <input type="number" class="form-control" id="input-7" placeholder="Enter number of year/sem" name="sem_year" required>
                                  </div>
                                  <button type="submit" class="btn btn-light px-5"> Add</button>
                              </div>

@@ -1,3 +1,4 @@
+@model mis_mmc.Models.ProgramModel
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout_admin";
@@ -31,33 +32,31 @@
                          <div class="card-body">
                          <div class="card-title">Update Program Form</div>
                          <hr>
-                         <form>
+                         <form asp-action="UpdateProgram" enctype="multipart/form-data">
+                             <input type="hidden" asp-for="s_no" />
                              <div class="form-group">
                                  <label for="input-1">Type</label>
-                                 <select class="form-control" id="input-1" placeholder="Enter type" name="type" required list="faculty">
-                                 <datalist id="faculty">
-                                     <option > Bachelor </option>
-                                     <option > Master</option>
-                                 </datalist>
+                                 <select class="form-control" id="input-1" placeholder="Enter type" name="type" required list="faculty" >
+                                     <datalist id="faculty">
+                                         <option > Bachelor </option>
+                                         <option > Master</option>
+                                     </datalist>
                                  </select>
                              </div>
-                             
+
                              <div class="form-group">
-                                 <label for="input-2">Faculty</label>
-                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="faculty" required list="teacher">
-                                 <datalist id="teacher">
-                                     <option value="Boston"/>
-                                     <option value="Cambridge"/>
-                                 </datalist>
+                                 <label asp-for="fid" class="control-label">Faculty</label>
+                                 <select asp-for="fid" class ="form-control" asp-items="ViewBag.Faculty"></select>
                              </div>
                              
+
                              <div class="form-group">
                                  <label for="input-3">Program Name</label>
-                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required>
+                                 <input type="text" class="form-control" id="input-3" placeholder="Enter Name" name="name" required value="@ViewBag.data.name">
                              </div>
                              <div class="form-group">
                                  <label for="input-4">Description</label>
-                                 <input type="text" class="form-control" id="input-4" placeholder="Enter Description" name="description" required>
+                                 <input type="text" class="form-control" id="input-4" placeholder="Enter Description" name="description" required value="@ViewBag.data.description">
                              </div>
                              <div class="form-group">
                                  <label for="input-5">File(syllabus)</label>
@@ -75,7 +74,7 @@
                                  </div>
                                  <div class="form-group">
                                      <label for="input-7">Number of year/sem</label>
-                                     <input type="number" class="form-control" id="input-7" placeholder="Enter number of year/sem" name="yearsem" required>
+                                     <input type="number" class="form-control" id="input-7" placeholder="Enter number of year/sem" name="sem_year" required value="@ViewBag.data.sem_year">
                                  </div>
                                  <button type="submit" class="btn btn-light px-5"> Update</button>
                              </div>

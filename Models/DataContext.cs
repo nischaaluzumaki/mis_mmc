@@ -20,5 +20,6 @@ public class DataContext : DbContext
     public DbSet<CollegeDetails> CollegeDetails{ get; set; }
     public DbSet<FacultyModel> FacultyModels{ get; set; }
     public  DbSet<ProgramModel> ProgramModels { get; set; }
+    public  DbSet<CourseModel> CourseModels { get; set; }
 
 }

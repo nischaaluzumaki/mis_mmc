@@ -3,6 +3,7 @@
     Layout = "_Layout_admin";
 
 }
+@model mis_mmc.Models.CourseModel
 
 <section class="content-header">
     <div class="container-fluid">
@@ -31,19 +32,16 @@
                          <div class="card-body">
                          <div class="card-title">Course Form</div>
                          <hr>
-                         <form>
+                         <form asp-action="AddCourse" enctype="multipart/form-data">
                              <div class="form-group">
-                                 <label for="input-1">Program</label>
-                                 <input type="text" class="form-control" id="input-1" placeholder="Enter Program Name" name="program" required list="faculty">
-                                 <datalist id="faculty">
-                                     <option > boston </option>
-                                     <option > Cambridge</option>
-                                 </datalist>
+                                 <label asp-for="pid" class="control-label">Program</label>
+                                 <select asp-for="pid" class ="form-control" asp-items="ViewBag.Program"></select>
                              </div>
+                             
                              
                              <div class="form-group">
                                  <label for="input-2">Semester/year</label>
-                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="semyear" required list="teacher">
+                                 <input type="number" class="form-control" id="input-2" placeholder="Enter semester/year" name="sem_year" required list="teacher">
                                  <datalist id="teacher">
                                      <option value="Boston"/>
                                      <option value="Cambridge"/>

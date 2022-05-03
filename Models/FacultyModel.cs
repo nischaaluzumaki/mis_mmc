@@ -11,6 +11,6 @@ public class FacultyModel
     public string? file { get; set; }
     public string? hod { get; set; }
 
-    public ICollection<ProgramModel> ProgramModels { get; set; }
+    public virtual ICollection<ProgramModel> ProgramModels { get; set; }
 
 }

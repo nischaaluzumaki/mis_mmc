@@ -68,28 +68,36 @@
                             </thead>
                             <tbody>
 
+         @{
+                                                         int i = 1;
+                                                       }
+                                                       @foreach (var item in ViewBag.data)
 
-                            <tr>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>c</td>
-                                <td>d</td>
-                                <td>e</td>
-                                <td>f</td>
-                                <td>g</td>
-                                
-                                
+                                                       {
+
+                                                           <tr>
+                                                               <td>@i</td>
+                                                               <td>@item.ProgramModel.name</td>
+                                                               <td>@item.sem_year</td>
+                                                               <td>@item.name</td>
+                                                               <td>@item.description</td>
+                                                               <td><a href="@item.file>"> </a></td>
+                                                               <td>@item.lecturer</td>
 
 
-                                <td>
-                                    <a asp-controller="AdminCourse" asp-action="UpdateCourse">
-                                        <button style="width: 70px;" type="button" class="btn btn-info" >Edit</button>
-                                    </a>
-                                    <a onclick="return confirm('Are you sure want to delete? ')">
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </a>
-                                </td>
-                            </tr>
+
+
+                                                               <td>
+                                                                   <a asp-controller="AdminCourse" asp-action="UpdateCourse" asp-route-id="@item.s_no">
+                                                                       <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
+                                                                   </a>
+                                                                   <a asp-controller="AdminCourse" asp-action="DeleteCorse" asp-route-id="@item.s_no" onclick="return confirm('Are you sure want to delete? ')">
+                                                                       <button type="button" class="btn btn-danger">Delete</button>
+                                                                   </a>
+                                                               </td>
+                                                           </tr>
+                                                           i++;
+                                                       }
 
                             </tbody>
 
