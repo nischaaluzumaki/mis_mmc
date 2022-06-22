@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using mis_mmc.Models;
 
@@ -10,9 +11,10 @@ using mis_mmc.Models;
 namespace mis_mmc.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220607174520_bh")]
+    partial class bh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,9 +33,6 @@ namespace mis_mmc.Migrations
                     b.Property<DateOnly>("expiry_date")
                         .HasColumnType("date");
 
-                    b.Property<bool?>("is_returned")
-                        .HasColumnType("tinyint(1)");
-
                     b.Property<DateOnly?>("issued_date")
                         .HasColumnType("date");
 
@@ -42,10 +41,6 @@ namespace mis_mmc.Migrations
 
                     b.Property<int>("sid")
                         .HasColumnType("int");
-
-                    b.Property<string>("uid")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.HasKey("s_no");
 
@@ -60,6 +55,9 @@ namespace mis_mmc.Migrations
                 {
                     b.Property<int>("s_no")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StudentModels_no")
                         .HasColumnType("int");
 
                     b.Property<string>("author")
@@ -91,6 +89,8 @@ namespace mis_mmc.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("s_no");
+
+                    b.HasIndex("StudentModels_no");
 
                     b.HasIndex("pid");
 
@@ -290,10 +290,6 @@ namespace mis_mmc.Migrations
                     b.Property<int>("sem_year")
                         .HasColumnType("int");
 
-                    b.Property<string>("uid")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.HasKey("s_no");
 
                     b.HasIndex("pid");
@@ -332,10 +328,6 @@ namespace mis_mmc.Migrations
                     b.Property<int>("phone")
                         .HasColumnType("int");
 
-                    b.Property<string>("uid")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.HasKey("s_no");
 
                     b.ToTable("TeacherModels");
@@ -362,8 +354,12 @@ namespace mis_mmc.Migrations
 
             modelBuilder.Entity("mis_mmc.Models.BookModel", b =>
                 {
+                    b.HasOne("mis_mmc.Models.StudentModel", null)
+                        .WithMany("BookModels")
+                        .HasForeignKey("StudentModels_no");
+
                     b.HasOne("mis_mmc.Models.ProgramModel", "ProgramModel")
-                        .WithMany()
+                        .WithMany("BookModels")
                         .HasForeignKey("pid");
 
                     b.Navigation("ProgramModel");
@@ -407,9 +403,16 @@ namespace mis_mmc.Migrations
 
             modelBuilder.Entity("mis_mmc.Models.ProgramModel", b =>
                 {
+                    b.Navigation("BookModels");
+
                     b.Navigation("CourseModels");
 
                     b.Navigation("StudentModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.StudentModel", b =>
+                {
+                    b.Navigation("BookModels");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace mis_mmc.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 

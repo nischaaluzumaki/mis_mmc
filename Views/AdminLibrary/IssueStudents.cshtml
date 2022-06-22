@@ -8,14 +8,16 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Library</h1>
+                <h1>Issue Details</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
                         <a href="#">Admin</a>
                     </li>
-                    <li class="breadcrumb-item active"> Library</li>
+                    <li class="breadcrumb-item "> Library</li>
+                    <li class="breadcrumb-item active"> Issue Details</li>
+                    
                 </ol>
             </div>
         </div>
@@ -35,16 +37,7 @@
                                 <i class="icon-magnifier"></i>
                             </a>
                         </form>
-                        <a style="margin-left: 20px;" asp-controller="AdminLibrary" asp-action="AddBook" >
-                            <button type="button" class="btn btn-primary">Add new</button>
-                        </a>
-                        <a style="margin-left: 20px;" asp-controller="AdminLibrary" asp-action="IssueBook">
-                            <button type="button" class="btn btn-primary">Issue book</button>
-                        </a>
-                        <a style="margin-left: 20px;" asp-controller="AdminLibrary" asp-action="IssueDetails">
-                            <button type="button" class="btn btn-primary">Issue details</button>
-                        </a>
-                        
+                       
 
                     </div>
                    
@@ -52,53 +45,52 @@
 
                     <!-- /.card-header -->
                     <div class="card-body">
-                       
+                        <h5></h5>
+
                         <table id="example2" class="table table-bordered table-hover table-responsive">
                             <thead>
                             <tr>
                                 <th>S.No</th>
-                                <th>Book name</th>
-                                <th>Author(s)</th>
-                                <th>Publication</th>
-                                <th>Current Stock</th>
-                                <th>Is_issued</th>
+                                <th>Book id</th>
+                                <th>Student Name</th>
+                                <th>Student id</th>
+                                <th>Issue Date</th>
+                                <th>Expiry Date</th>
+                                <th>Is_returned</th>
+                                <th>Return Date</th>
                                 <th>Action</th>
-                                
+                                <th></th>
+
                             </tr>
                             </thead>
                             <tbody>
 
-  @{
-                                   int i = 1;
-                               }
-                            
+                            @{
+                                int i = 1;
+                            }
+
                             @foreach (var item in ViewBag.data)
 
                             {
                                 <tr>
                                     <td>@i</td>
-                                    <td>@item.name</td>
-                                    <td>@item.author</td>
-                                    <td>@item.publication</td>
-                                    <td>@item.stock</td>
-                                    <td>@item.is_issued</td>
+                                    <td>@item.BookModel.name</td>
+                                    <td>@item.uid</td>
+                                    <td>@item.StudentModel.name</td>
+                                    <td>@item.StudentModel.uid</td>
+                                    <td>@item.issued_date</td>
+                                    <td>@item.expiry_date</td>
+                                    <td>@item.is_returned</td>
+                                    <td>@item.return_date</td>
 
 
                                     <td>
-                                        @if (item.is_issued == true)
-                                        {
-                                            <a >
-                                                <button  type="button" class="btn btn-info"> Issue Info</button>
-                                            </a>
-                                                                                
-                                        }
-                                
+
+
                                         <a asp-controller="AdminLibrary" asp-action="UpdateBook">
-                                            <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
+                                            <button style="width: 70px;" type="button" class="btn btn-info">Confirm Return</button>
                                         </a>
-                                        <a onclick="return confirm('Are you sure want to delete? ')">
-                                            <button type="button" class="btn btn-danger">Delete</button>
-                                        </a>
+
                                     </td>
                                 </tr>
                                 i++;

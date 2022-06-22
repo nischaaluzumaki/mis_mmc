@@ -38,6 +38,11 @@
                         <a style="margin-left: 20px;" asp-controller="AdminStudent" asp-action="AddStudent" >
                             <button type="button" class="btn btn-primary">Add new</button>
                         </a>
+                        <a style="margin-left: 5px;" asp-controller="AdminStudent" asp-action="Admission" >
+                            <button type="button" class="btn btn-primary">Admission</button>
+                        </a>
+                        
+                        
 
                     </div>
                    
@@ -46,45 +51,64 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                        
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example2" class="table table-bordered table-hover table-responsive">
                             <thead>
                             <tr>
                                 <th>S.No</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Date of Birth</th>
                                 <th>Contact no</th>
                                 <th>Address</th>
-                                <th>Program</th>
-                                <th>Semester</th>
+                                <th>Gender</th>
+                                <th>Photo</th>
+                                <th>Is_admitted?</th>
                                 <th>Action</th>
                                 
                             </tr>
                             </thead>
                             <tbody>
 
+  @{
+                                   int i = 1;
+                               }
+                            
+                            @foreach (var item in ViewBag.data)
 
-                            <tr>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>c</td>
-                                <td>d</td>
-                                <td>e</td>
-                                <td>f</td>
-                                <td>g</td>
-                                
-                                
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.name</td>
+                                    <td>@item.email</td>
+                                    <td>@item.dob</td>
+                                    <td>@item.phone</td>
+                                    <td>@item.address</td>
+                                    <td>@item.gender</td>
+                                    
+                                    <td><img src="@item.file " style="height: 50px; width : 50px;"></td>
+                                    <td>@item.is_admitted</td>
 
 
-                                <td>
-                                    <a asp-action="UpdateStudent" asp-controller="AdminStudent" >
-                                        <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
-                                    </a>
-                                    <a onclick="return confirm('Are you sure want to delete? ')">
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </a>
-                                </td>
-                            </tr>
 
+
+                                    <td>
+                                        @if (item.is_admitted == true)
+                                        {
+                                            <a asp-action="UpdateStudent" asp-controller="AdminStudent">
+                                                <button style="width: 70px;" type="button" class="btn btn-info"> Info</button>
+                                            </a>
+                                            
+                                        }
+                                       
+                                        <a asp-action="UpdateStudent" asp-controller="AdminStudent">
+                                            <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
+                                        </a>
+                                        <a onclick="return confirm('Are you sure want to delete? ')">
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                             </tbody>
 
                         </table>

@@ -46,7 +46,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                        
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example2" class="table table-bordered table-hover table-responsive">
                             <thead>
                             <tr>
                                 <th>S.No</th>
@@ -55,7 +55,8 @@
                                 <td>D.O.B</td>
                                 <th>Contact no</th>
                                 <th>Address</th>
-                                <th>Special Title</th>
+                                <th>Gender</th>
+                                <th>Photo</th>
                                 <th>Action</th>
                                 
                                 
@@ -64,28 +65,39 @@
                             <tbody>
 
 
-                            <tr>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>c</td>
-                                <td>d</td>
-                                <td>e</td>
-                                <td>f</td>
-                                <td>g</td>
-                                
-                                
+                            @{
+                                                              int i = 1;
+                                                          }
+                                                       
+                                                       @foreach (var item in ViewBag.data)
+
+                                                       {
+                                                           <tr>
+                                                               <td>@i</td>
+                                                               <td>@item.name</td>
+                                                               
+                                                               <td>@item.email</td>
+                                                               <td> @item.dob</td>
+                                                               <td>@item.phone</td>
+                                                               <td>@item.address</td>
+                                                               <td>@item.gender</td>
+                                                               <td><img src="@item.file" style="height: 50px; width : 50px;"></td>
 
 
-                                <td>
-                                    <a >
-                                        <button style="width: 70px;" type="button" class="btn btn-info" asp-controller="AdminTeacher" asp-action="UpdateTeacher">Edit</button>
-                                    </a>
-                                    <a onclick="return confirm('Are you sure want to delete? ')">
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </a>
-                                </td>
-                            </tr>
 
+
+
+                                                               <td>
+                                                                   <a >
+                                                                       <button style="width: 70px;" type="button" class="btn btn-info" asp-controller="AdminTeacher" asp-action="UpdateTeacher">Edit</button>
+                                                                   </a>
+                                                                   <a onclick="return confirm('Are you sure want to delete? ')">
+                                                                       <button type="button" class="btn btn-danger">Delete</button>
+                                                                   </a>
+                                                               </td>
+
+                                                           </tr>
+                                                       }
                             </tbody>
 
                         </table>

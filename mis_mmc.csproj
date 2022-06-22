@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Models\BookIssueModel.cs" />
+    <Content Include="Models\BookModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AecFramework.Data.MySqlServer" Version="20210714.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
@@ -17,12 +22,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.0" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\file" />
   </ItemGroup>
 
 </Project>
