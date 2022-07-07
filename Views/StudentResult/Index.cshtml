@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_student";
+
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Exams</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Student</a>
+                    </li>
+                    <li class="breadcrumb-item active"> Exam and result</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                       
+                        <form class="search-bar" style="float: left; ">
+                            <input type="text" class="form-control" placeholder="Enter keywords" style="float: left">
+                            <a href="">
+                                <i class="icon-magnifier"></i>
+                            </a>
+                        </form>
+                        <a style="margin-left: 20px;" asp-controller="AdminExam" asp-action="AddExam">
+                            <button type="button" class="btn btn-primary" >Add new</button>
+                        </a>
+
+                    </div>
+                   
+
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                       
+                        <table id="example2" class="table table-bordered table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Exam name</th>
+                                <th>Type</th>
+                               
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Action</th>
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+
+ @{
+                                   int i = 1;
+                               }
+                            
+                            @foreach (var item in ViewBag.data)
+
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.name</td>
+                                    <td>@item.type</td>
+                                   
+                                    <td>@item.start_date</td>
+                                    <td>@item.end_date</td>
+                                   
+
+
+
+
+                                    <td>
+                                        <a asp-controller="AdminExam" asp-action="ExamDetails" asp-route-id="@item.s_no">
+                                            <button  type="button" class="btn btn-info">Print Result</button>
+                                        </a>
+                                        
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.container-fluid -->
+</section>
