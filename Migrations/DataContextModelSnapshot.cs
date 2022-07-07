@@ -19,6 +19,92 @@ namespace mis_mmc.Migrations
                 .HasAnnotation("ProductVersion", "6.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("mis_mmc.Models.AssignmentModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("cid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateOnly>("due_date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("file")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("points")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("published_date")
+                        .HasColumnType("date");
+
+                    b.Property<int>("tid")
+                        .HasColumnType("int");
+
+                    b.HasKey("s_no");
+
+                    b.HasIndex("cid");
+
+                    b.HasIndex("tid");
+
+                    b.ToTable("AssignmentModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.AssignmentReturnModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("aid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("cid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("file")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("is_checked")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int?>("points")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("return_date")
+                        .HasColumnType("date");
+
+                    b.Property<int>("sid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("tid")
+                        .HasColumnType("int");
+
+                    b.HasKey("s_no");
+
+                    b.HasIndex("aid");
+
+                    b.HasIndex("cid");
+
+                    b.HasIndex("sid");
+
+                    b.HasIndex("tid");
+
+                    b.ToTable("AssignmentReturnModels");
+                });
+
             modelBuilder.Entity("mis_mmc.Models.BookIssueModel", b =>
                 {
                     b.Property<int>("s_no")
@@ -150,7 +236,13 @@ namespace mis_mmc.Migrations
                     b.Property<int>("pid")
                         .HasColumnType("int");
 
-                    b.Property<string>("sem_year")
+                    b.Property<int>("sem_year")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("tid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("uid")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -158,7 +250,76 @@ namespace mis_mmc.Migrations
 
                     b.HasIndex("pid");
 
+                    b.HasIndex("tid");
+
                     b.ToTable("CourseModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.ExamDetailsModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("cid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("eid")
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("exam_date")
+                        .HasColumnType("date");
+
+                    b.Property<int>("full_marks")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pass_marks")
+                        .HasColumnType("int");
+
+                    b.Property<TimeOnly>("time")
+                        .HasColumnType("time(6)");
+
+                    b.HasKey("s_no");
+
+                    b.HasIndex("cid");
+
+                    b.HasIndex("eid");
+
+                    b.ToTable("ExamDetailsModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.ExamModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateOnly>("end_date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("pid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("sem_year")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateOnly>("start_date")
+                        .HasColumnType("date");
+
+                    b.Property<string>("type")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("s_no");
+
+                    b.HasIndex("pid");
+
+                    b.ToTable("ExamModels");
                 });
 
             modelBuilder.Entity("mis_mmc.Models.FacultyModel", b =>
@@ -181,9 +342,49 @@ namespace mis_mmc.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("uid")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.HasKey("s_no");
 
                     b.ToTable("FacultyModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.LmsModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("cid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("file")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("published_date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("tid")
+                        .HasColumnType("int");
+
+                    b.HasKey("s_no");
+
+                    b.HasIndex("cid");
+
+                    b.HasIndex("tid");
+
+                    b.ToTable("LmsModels");
                 });
 
             modelBuilder.Entity("mis_mmc.Models.LoginModel", b =>
@@ -207,6 +408,49 @@ namespace mis_mmc.Migrations
                     b.HasKey("uid");
 
                     b.ToTable("LoginModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.NtStaffsModel", b =>
+                {
+                    b.Property<int>("s_no")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("address")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateOnly>("dob")
+                        .HasColumnType("date");
+
+                    b.Property<string>("email")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("file")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("gender")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("phone")
+                        .HasColumnType("int");
+
+                    b.Property<int>("post")
+                        .HasColumnType("int");
+
+                    b.Property<string>("uid")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("s_no");
+
+                    b.ToTable("NtStaffsModels");
                 });
 
             modelBuilder.Entity("mis_mmc.Models.ProgramModel", b =>
@@ -240,6 +484,10 @@ namespace mis_mmc.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("type")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("uid")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -285,6 +533,9 @@ namespace mis_mmc.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("pid")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("roll_no")
                         .HasColumnType("int");
 
                     b.Property<int>("sem_year")
@@ -341,6 +592,60 @@ namespace mis_mmc.Migrations
                     b.ToTable("TeacherModels");
                 });
 
+            modelBuilder.Entity("mis_mmc.Models.AssignmentModel", b =>
+                {
+                    b.HasOne("mis_mmc.Models.CourseModel", "CourseModel")
+                        .WithMany()
+                        .HasForeignKey("cid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mis_mmc.Models.TeacherModel", "TeacherModel")
+                        .WithMany()
+                        .HasForeignKey("tid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CourseModel");
+
+                    b.Navigation("TeacherModel");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.AssignmentReturnModel", b =>
+                {
+                    b.HasOne("mis_mmc.Models.AssignmentModel", "AssignmentModel")
+                        .WithMany("AssignmentReturnModels")
+                        .HasForeignKey("aid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mis_mmc.Models.CourseModel", "CourseModel")
+                        .WithMany()
+                        .HasForeignKey("cid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mis_mmc.Models.StudentModel", "StudentModel")
+                        .WithMany()
+                        .HasForeignKey("sid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mis_mmc.Models.TeacherModel", "TeacherModel")
+                        .WithMany()
+                        .HasForeignKey("tid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AssignmentModel");
+
+                    b.Navigation("CourseModel");
+
+                    b.Navigation("StudentModel");
+
+                    b.Navigation("TeacherModel");
+                });
+
             modelBuilder.Entity("mis_mmc.Models.BookIssueModel", b =>
                 {
                     b.HasOne("mis_mmc.Models.BookModel", "BookModel")
@@ -363,7 +668,7 @@ namespace mis_mmc.Migrations
             modelBuilder.Entity("mis_mmc.Models.BookModel", b =>
                 {
                     b.HasOne("mis_mmc.Models.ProgramModel", "ProgramModel")
-                        .WithMany()
+                        .WithMany("BookModels")
                         .HasForeignKey("pid");
 
                     b.Navigation("ProgramModel");
@@ -377,7 +682,62 @@ namespace mis_mmc.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("mis_mmc.Models.TeacherModel", "TeacherModel")
+                        .WithMany()
+                        .HasForeignKey("tid");
+
                     b.Navigation("ProgramModel");
+
+                    b.Navigation("TeacherModel");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.ExamDetailsModel", b =>
+                {
+                    b.HasOne("mis_mmc.Models.CourseModel", "CourseModel")
+                        .WithMany()
+                        .HasForeignKey("cid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mis_mmc.Models.ExamModel", "ExamModel")
+                        .WithMany("ExamDetailsModels")
+                        .HasForeignKey("eid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CourseModel");
+
+                    b.Navigation("ExamModel");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.ExamModel", b =>
+                {
+                    b.HasOne("mis_mmc.Models.ProgramModel", "ProgramModel")
+                        .WithMany()
+                        .HasForeignKey("pid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProgramModel");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.LmsModel", b =>
+                {
+                    b.HasOne("mis_mmc.Models.CourseModel", "CourseModel")
+                        .WithMany()
+                        .HasForeignKey("cid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mis_mmc.Models.TeacherModel", "TeacherModel")
+                        .WithMany()
+                        .HasForeignKey("tid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CourseModel");
+
+                    b.Navigation("TeacherModel");
                 });
 
             modelBuilder.Entity("mis_mmc.Models.ProgramModel", b =>
@@ -400,6 +760,16 @@ namespace mis_mmc.Migrations
                     b.Navigation("ProgramModel");
                 });
 
+            modelBuilder.Entity("mis_mmc.Models.AssignmentModel", b =>
+                {
+                    b.Navigation("AssignmentReturnModels");
+                });
+
+            modelBuilder.Entity("mis_mmc.Models.ExamModel", b =>
+                {
+                    b.Navigation("ExamDetailsModels");
+                });
+
             modelBuilder.Entity("mis_mmc.Models.FacultyModel", b =>
                 {
                     b.Navigation("ProgramModels");
@@ -407,6 +777,8 @@ namespace mis_mmc.Migrations
 
             modelBuilder.Entity("mis_mmc.Models.ProgramModel", b =>
                 {
+                    b.Navigation("BookModels");
+
                     b.Navigation("CourseModels");
 
                     b.Navigation("StudentModels");

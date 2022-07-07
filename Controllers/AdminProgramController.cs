@@ -1,3 +1,8 @@
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +27,15 @@ public class AdminProgramController : Controller
         await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
         return "/" + folderpath;
     }
+    public int Getid ()
+
+    {
+
+        Random r = new Random();
+    
+        return r.Next(10000,99999);
+    
+    }
     public IActionResult Index()
     {
         var data = _context.ProgramModels.Include(f=>f.FacultyModel).ToList();
@@ -44,6 +58,7 @@ public class AdminProgramController : Controller
         
         string folder = "file/";
         programModel.file = await UploadImage(folder, file);
+        programModel.uid = "mmcp" + Getid();
         _context.ProgramModels.Add(programModel);
         _context.SaveChanges();
         return RedirectToAction("Index");

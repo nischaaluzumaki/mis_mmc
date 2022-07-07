@@ -1,18 +1,205 @@
-@model TModel
-
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_student";
+
 }
+@model mis_mmc.Models.AssignmentModel
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Assignments</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Students</a>
+                    </li>
+                    <li class="breadcrumb-item active"> Assignments</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
 
-<!DOCTYPE html>
+        <div class="row">
+            <div class="col-12">
+              <div class="card">
+                                  <h5>Pending Assignments for @ViewBag.name</h5>
+                                  <div class="card-header">
+              
+                                      <form class="search-bar" style="float: left; ">
+                                          <input type="text" class="form-control" placeholder="Enter keywords" style="float: left">
+                                          <a href="">
+                                              <i class="icon-magnifier"></i>
+                                          </a>
+                                      </form>
+              
+              
+                                  </div>
+              
+              
+              
+                                  <!-- /.card-header -->
+                                  <div class="card-body">
+              
+                                      <table id="example2" class="table table-bordered table-hover table-responsive">
+                                          <thead>
+                                          <tr>
+                                              <th>S.No</th>
+                                              
+                                              <th>Assignment Name </th>
+                                              <th>Description</th>
+                                              <th>File</th>
+                                              <th>Points</th>
+                                              <th>Published by</th>
+                                              <th>Published Date</th>
+                                              <th>Due date</th>
+                                              
+                                              <th>Action</th>
+                                             
+              
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+              
+                                          @{
+                                              int i = 1;
+                                          }
+              
+                                          @foreach (var item in ViewBag.data)
+              
+                                          {
+                                              <tr>
+                                                  <td>@i</td>
+                                                  
+                                                  <td>@item.name</td>
+                                                  <td>@item.description</td>
+                                                  <td><a href="@item.file">@item.file</a></td>
+                                                  <td>@item.points</td>
+                                                  <td>@item.TeacherModel.name</td>
+                                                  <td>@item.published_date</td>
+                                                  <td>@item.due_date</td>
+                                                  
+                                                  <td>
+                                                    
+                                                  
+                                                  
+                                                          <a  asp-route-id="@item.s_no" asp-controller="StudentAssignment" asp-action="ReturnAssignment">
+                                                              <button  type="button" class="btn btn-info">Return Assignment</button>
+                                                          </a>
+                                                     
+                                                  
+                                                  </td>
+                                                  
+              
+              
+              
+              
+              
+                                             
+                                              </tr>
+                                              i++;
+                                          }
+                                          </tbody>
+              
+                                      </table>
+                                  </div>
+              
+                                  <!-- /.card-body -->
+                              </div> 
+                <!-- /.card --><div class="card">
+                                                                 <h5>Submitted Assignments for @ViewBag.name</h5>
+                                                                 <div class="card-header">
+                                             
+                                                                     <form class="search-bar" style="float: left; ">
+                                                                         <input type="text" class="form-control" placeholder="Enter keywords" style="float: left">
+                                                                         <a href="">
+                                                                             <i class="icon-magnifier"></i>
+                                                                         </a>
+                                                                     </form>
+                                             
+                                             
+                                                                 </div>
+                                             
+                                             
+                                             
+                                                                 <!-- /.card-header -->
+                                                                 <div class="card-body">
+                                             
+                                                                     <table id="example2" class="table table-bordered table-hover table-responsive">
+                                                                         <thead>
+                                                                         <tr>
+                                                                             <th>S.No</th>
+                                                                             
+                                                                             <th>Assignment Name </th>
+                                                                             <th>Submitted date</th>
+                                                                             <th>Question File</th>
+                                                                             <th>Answer File</th>
+                                                                              <th>Teacher Name</th>
+                                                                             <th>Is checked</th>
+                                                                            
+                                                                             <th>Obtained Points</th>
+                                                                             
+                                                                             
+                                                                            
+                                                                            
+                                             
+                                                                         </tr>
+                                                                         </thead>
+                                                                         <tbody>
+                                             
+                                                                         @{
+                                                                             int z = 1;
+                                                                         }
+                                             
+                                                                         @foreach (var item in ViewBag.dataf)
+                                             
+                                                                         {
+                                                                             <tr>
+                                                                                 <td>@z</td>
+                                                                                 
+                                                                                 <td>@item.AssignmentModel.name</td>
+                                                                                 <td>@item.return_date</td>
+                                                                                 <td><a href="@item.AssignmentModel.file">@item.AssignmentModel.file</a></td>
+                                                                                 <td><a href="@item.file">@item.file</a></td>
+                                                                                 <td>@item.TeacherModel.name</td>
+                                                                                 <td>@item.is_checked</td>
+                                                                                 <td>@item.points</td>
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                
+                                                                                 
+                                             
+                                             
+                                             
+                                             
+                                             
+                                                                            
+                                                                             </tr>
+                                                                             z++;
+                                                                         }
+                                                                         </tbody>
+                                             
+                                                                     </table>
+                                                                 </div>
+                                             
+                                                                 <!-- /.card-body -->
+                                                             </div> 
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.container-fluid -->
+</section>

@@ -31,22 +31,16 @@
                          <div class="card-body">
                          <div class="card-title">Appoint Lecturer Form</div>
                          <hr>
-                          <form>
+                          <form method="post" asp-action="AppointLecturer">
                               <div class="form-group">
-                                  <label for="input-1">Name of Course</label>
-                                  <input type="text" class="form-control" id="input-1" placeholder="Enter Name" name="faculty" required list="faculty">
-                                  <datalist id="faculty">
-                                      <option > boston </option>
-                                      <option > Cambridge</option>
-                                  </datalist>
+                                  <label for="input-1">Enter unique id of course</label>
+                                  <input type="text" class="form-control" id="input-1" placeholder="Enter Name" name="course" required >
+                                 
                               </div>
                               <div class="form-group">
-                                  <label for="input-2">Name of Teacher</label>
-                                  <input type="text" class="form-control" id="input-2" placeholder="Enter Name" name="teacher" required list="teacher">
-                                  <datalist id="teacher">
-                                      <option value="Boston"/>
-                                      <option value="Cambridge"/>
-                                  </datalist>
+                                  <label for="input-2">Enter unique id of teacher</label>
+                                  <input type="text" class="form-control" id="input-2" placeholder="Enter Name" name="teacher" required >
+                                 
                               </div>
                               
                         

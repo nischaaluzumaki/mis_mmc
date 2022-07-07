@@ -1,6 +1,6 @@
 @{
     ViewData["Title"] = "Home Page";
-    Layout = "_Layout_admin";
+    Layout = "_Layout_librarian";
 
 }
 
@@ -85,12 +85,16 @@
 
 
                                     <td>
-                                        
-                                
-                                        <a asp-controller="AdminLibrary" asp-action="UpdateBook">
-                                            <button style="width: 70px;" type="button" class="btn btn-info">Confirm Return</button>
-                                        </a>
-                                        
+                                           @if (item.is_returned != true)
+                                           {
+
+
+
+                                               <a asp-controller="AdminLibrary" asp-action="ConfirmReturn" asp-route-id="@item.s_no">
+                                                   <button  type="button" class="btn btn-info">Confirm Return</button>
+                                               </a>
+                                           }
+
                                     </td>
                                 </tr>
                                 i++;

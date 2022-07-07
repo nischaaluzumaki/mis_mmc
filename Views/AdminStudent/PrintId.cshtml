@@ -1,3 +1,6 @@
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +10,37 @@
     <title>ID Card</title>
    
 </head>
-<body>
+<body >
 <div class="container">
     <div class="padding">
         <div class="font">
             <div class="companyname">Mechi Multiple<br><span class="tab">Campus</span></div>
             <div class="top">
-                <img src="character.png" alt="">
+                <img src="@ViewBag.image" alt="">
             </div>
             <div class="">
                 <div class="ename">
-                    <p class="p1"><b>SMIT ZADAFIYA</b></p>
-                    <p>Media Developer</p>
+                    <p class="p1"><b>@ViewBag.name</b></p>
+                    <p>Student</p>
                 </div>
                 <div class="edetails">
-                    <P><b>Mobile No :</b> 8460304196</P>
-                    <p><b>DOB :</b> 02/11/2020</p>
-                    <div class="Address"><b>Address : </b>223 par-1 hari soc, near main road ,L.H road surat ,L.H road </div>
-                    
+                    <P><b>Uid :</b> @ViewBag.uid</P>
+                    <P><b>Program :</b> @ViewBag.program</P>
+                    <p><b>DOB :</b> @ViewBag.dob</p>
+                    <p><b>Semester :</b> @ViewBag.sem</p>
+                    <p><b>Contact no :</b> @ViewBag.phone</p>
+                    <p><b>Address : </b>@ViewBag.address
+
                 </div>
 
                 <div class="signature">
-                    <img src="signature.png" alt="">
+                    <img src="~/images/signature.png" alt="">
                 </div>
 
-                <div class="barcode">
-                    <img src="qr sample.png" alt="">
-                </div>
-                <div class="qr">
-                    <img src="barcode.png" alt="">
-                </div>
+                 <div class="barcode">
+                                   <img src="~/images/qr sample.png" alt="">
+                               </div>
+                
 
           
             </div>

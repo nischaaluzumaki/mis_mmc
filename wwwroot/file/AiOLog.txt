@@ -1,0 +1,27 @@
+Default applications
+Fix MS SystemUser Bug:                                            	End!
+Java Runtime Environment 7 Update 51:                 	End!
+Java Runtime Environment 7 Update 51 x64:          	End!
+Visual C++ 2005:                                                         	End!
+Visual C++ 2008:                                                         	End!
+Visual C++ 2010:                                                         	End!
+Visual C++ 2012:                                                         	End!
+Visual C++ 2005 x64:                                                  	End!
+Visual C++ 2008 x64:                                                  	End!
+Visual C++ 2010 x64:                                                  	End!
+
+Microsoft .NET Framework
+.NET Framework 1.1:                                                   	End!
+.NET Framework 1.1 - Cleanup:                                	End!
+
+Other Runtimes
+Microsoft Visual J-Sharp 2.0 SE:                                	End!
+
+Default applications
+Adobe Flash Player - Plugin:                                     	End!
+Adobe Shockwave Player v12.0.7.148:                     	End!
+Microsoft Silverlight v5.1.20913.0 x64:                     	End!
+
+System Runtimes
+Allgemeine Runtime Dateien:                                   	End!
+Microsoft DirectX 9.0c Redistributable:                   	End!

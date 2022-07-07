@@ -46,7 +46,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                        
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example2" class="table table-bordered table-hover table-responsive">
                             <thead>
                             <tr>
                                 <th>S.No</th>
@@ -62,29 +62,37 @@
                             </thead>
                             <tbody>
 
+ @{
+                                   int i = 1;
+                               }
+                            
+                            @foreach (var item in ViewBag.data)
 
-                            <tr>
-                                <td>a</td>
-                                <td>b</td>
-                                <td>c</td>
-                                <td>d</td>
-                                <td>e</td>
-                                <td>f</td>
-                                <td>g</td>
-                                
-                                
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.name</td>
+                                    <td>@item.name</td>
+                                    <td>@item.ProgramModel.name</td>
+                                    <td>@item.sem_year</td>
+                                    <td>@item.start_date</td>
+                                    <td>@item.end_date</td>
+                                   
 
 
-                                <td>
-                                    <a asp-action="UpdateExam" asp-controller="AdminExam">
-                                        <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
-                                    </a>
-                                    <a onclick="return confirm('Are you sure want to delete? ')">
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </a>
-                                </td>
-                            </tr>
 
+
+                                    <td>
+                                        <a asp-controller="AdminExam" asp-action="ExamDetails" asp-route-id="@item.s_no">
+                                            <button  type="button" class="btn btn-info">Add Details</button>
+                                        </a>
+                                        <a onclick="return confirm('Are you sure want to delete? ')">
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
                             </tbody>
 
                         </table>

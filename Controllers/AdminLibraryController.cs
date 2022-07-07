@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -100,6 +103,26 @@ public class AdminLibraryController : Controller
 
     public IActionResult IssueStudents(int id)
     {
+         var data = _context.BookIssueModels.Include(f=>f.BookModel).Include(f=>f.StudentModel).Where(x => x.bid.Equals(id)).ToList();
+                ViewBag.data = data;
         return View();
+    }
+
+    public IActionResult ConfirmReturn(int id)
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ConfirmReturn(int id, string return_date)
+    {
+        var isuue = _context.BookIssueModels.Include(f=>f.BookModel).Where(f => f.s_no==id).FirstOrDefault();
+        isuue.is_returned = true;
+        isuue.return_date=DateOnly.Parse(return_date);
+        isuue.BookModel.stock -= 1;
+        
+        await _context.SaveChangesAsync();
+        return RedirectToAction ("IssueDetails");
     }
 }

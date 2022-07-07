@@ -56,6 +56,7 @@
                             <thead>
                             <tr>
                                 <th>S.No</th>
+                                <th>Uid</th>
                                 <th>Program</th>
                                 <th>Semester/Year</th>
                                 <th>Course name</th>
@@ -77,11 +78,12 @@
 
                                                            <tr>
                                                                <td>@i</td>
+                                                               <td>@item.uid</td>
                                                                <td>@item.ProgramModel.name</td>
                                                                <td>@item.sem_year</td>
                                                                <td>@item.name</td>
                                                                <td>@item.description</td>
-                                                               <td><a href="@item.file>"> </a></td>
+                                                               <td><a href="@item.file">@item.file </a></td>
                                                                <td>@item.lecturer</td>
 
 
@@ -91,7 +93,7 @@
                                                                    <a asp-controller="AdminCourse" asp-action="UpdateCourse" asp-route-id="@item.s_no">
                                                                        <button style="width: 70px;" type="button" class="btn btn-info">Edit</button>
                                                                    </a>
-                                                                   <a asp-controller="AdminCourse" asp-action="DeleteCorse" asp-route-id="@item.s_no" onclick="return confirm('Are you sure want to delete? ')">
+                                                                   <a asp-controller="AdminCourse" asp-action="DeleteCourse" asp-route-id="@item.s_no" onclick="return confirm('Are you sure want to delete? ')">
                                                                        <button type="button" class="btn btn-danger">Delete</button>
                                                                    </a>
                                                                </td>

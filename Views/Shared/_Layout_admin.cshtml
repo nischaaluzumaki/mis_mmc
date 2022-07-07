@@ -1,6 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using mis_mmc.Controllers
+<!DOCTYPE html>
 <html lang="en">
 <head>
+   
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -27,7 +30,7 @@
     <link href="~/css/sidebar-menu.css" rel="stylesheet"/>
     <!-- Custom Style-->
     <link href="~/css/app-style.css" rel="stylesheet"/>
-    
+
 
 </head>
 
@@ -96,26 +99,17 @@
             </a>
         </li>
 
-        <li>
+        @*<li>
             <a asp-controller="AdminLibrary" asp-action="Index">
                 <i class="zmdi zmdi-account-circle"></i> <span>Library</span>
             </a>
-        </li>
+        </li>*@
         <li>
             <a asp-controller="AdminExam" asp-action="Index">
                 <i class="zmdi zmdi-account-circle"></i> <span>Exam</span>
             </a>
         </li>
-        <li>
-            <a asp-controller="AdminExam" asp-action="Index">
-                <i class="zmdi zmdi-account-circle"></i> <span>Admission</span>
-            </a>
-        </li>
-        <li>
-            <a asp-controller="AdminExam" asp-action="Index">
-                <i class="zmdi zmdi-account-circle"></i> <span>Teacher Attendence</span>
-            </a>
-        </li>
+       
         
         <li>
             <a href="register.html" target="_blank">
@@ -123,16 +117,7 @@
             </a>
         </li>
         
-         <li>
-                    <a href="register.html" target="_blank">
-                        <i class="zmdi zmdi-account-circle"></i> <span>Canteen</span>
-                    </a>
-                </li>
-        <li>
-            <a href="register.html" target="_blank">
-                <i class="zmdi zmdi-account-circle"></i> <span>Payment</span>
-            </a>
-        </li>
+       
          <li>
                     <a href="register.html" target="_blank">
                         <i class="zmdi zmdi-account-circle"></i> <span>Change Password</span>
@@ -206,20 +191,17 @@
                                    
                                 }
                                 <div class="media-body">
-                                    <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+                                    <h6 class="mt-2 user-title">Admin</h6>
                                     <p class="user-subtitle">@email</p>
                                 </div>
                             </div>
                         </a>
                     </li>
                     <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+                    <li class="dropdown-item"><i class="icon-envelope mr-2"></i> My details</li>
+                    
                     <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
-                    <li class="dropdown-divider"></li>
-                    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+                    <a asp-controller="Login" asp-action="Logout"><li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
                 </ul>
             </li>
         </ul>
@@ -323,6 +305,16 @@
 <!-- Index js -->
 <script src="~/js/index.js"></script>
 
+ @{
+        if (Context.Session.GetString("Logged")== null)
+        {
+            Context.Response.Redirect("/login/login");
 
+        }
+     if (Context.Session.GetString("role") != "admin")
+     {
+         Context.Response.Redirect("/login/login");
+     }
+    }
 </body>
 </html>

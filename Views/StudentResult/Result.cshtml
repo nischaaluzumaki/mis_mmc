@@ -1,18 +1,315 @@
-@model TModel
-
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title>title</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clear::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .fl_l{
+            float: left;
+        }
+        .fl_r{
+            float: right;
+        }
+        .text_c{
+            text-align: center;
+        }
+        .tex-r{
+            text-align: right;
+        }
+        /* Main Css */
+        .main_div{
+            width: 700px;
+            margin: auto;
+            border: 15px solid #eee;
+            border-top: 5px solid #eee;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .header_left{
+            width: 20%;
+            background: #eeee;
+            text-align: center;
+            padding: 17px 0;
+            border-radius: 5px 0 0 5px;
+        }
+        .header_right{
+            width: 80%;
+        }
+        .flag{
+            background: #007a16;
+            height: 41px;
+            overflow: hidden;
+            border-bottom: 2px solid #70d06e;
+        }
+        .flag_left{
+            width: 50%;
+        }
+        .flag_left h2{
+            color: #70d06e;
+            padding: 7px 9px;
+            font-size: 20px;
+        }
+        .flag_right{
+            width: 50%;
+            text-align: right;
+        }
+        .green_bakcground{
+            background: #007a16;
+            padding: 4px 9px;
+        }
+        .green_bakcground h3{
+            font-size: 22px;
+            color: #fff;
+        }
+        .official{
+            text-align: right;
+            background: #70d06e;
+            padding: 5px;
+        }
+        .official a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            transition: .5s;
+        }
+        .official a:hover{
+            color: blue;
+        }
+        .fast_heading{
+            text-align: center;
+            padding: 20px 0;
+            padding-bottom: 2px;
+            border-bottom: 2px solid #eee;
+            margin-top: 12px;
+        }
+        /* Fast Heading */
+        .fast_heading h1{
+            font-size: 25px;
+        }
+        /* sutdent Detials */
+        .student_detials table{
+            background: #eee;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .student_detials table tr td{
+            border: 1px solid #fff;
+            font-size: 14px;
+            padding: 3px 3px;
+        }
+        /* Second Heading */
+        .second_heading{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .second_heading h2{
+            font-size: 25px;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        /* Marksheet Css */
+        .marksheet table{
+            background: #eee;
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .marksheet table tr td{
+            border: 1px solid #fff;
+            font-size: 14px;
+            padding: 3px 3px;
+        }
+        .marksheet table tr th{
+            background-color: #aeb7be;
+            text-align: left;
+            padding: 3px 3px;
+            border: 1px solid #fff;
+        }
+        .marksheet table tr:nth-child(odd){    
+            background-color: #dfe0e2;
+        }
+        .sech_div{
+            text-align: center;
+            margin-top: 17px;
+            border-bottom: 3px solid #70d06e;
+            padding-bottom: 14px;
+        }
+        .sech_div a{
+            display: inline-block;
+            text-decoration: none;
+            font-size: 17px;
+            color: blue;
+        }
+        .footer{
+            background-color: #eee;
+            padding-top: 22px;
+        }
+        .footer_left{
+            width: 60%;
+        }
+        .footer_left p{
+            margin-left: 5px;
+            font-size: 14px;
+        }
+        .footer_right{
+            width: 20%;
+        }
+        .footer_right p{
+            position: relative;
+            top: 0;
+            right: -112px;
+            font-size: 14px;
+        }
+        .footer_image{
+            width: 20%;
+            text-align: right;
+        }
+        .footer_image img{
+            max-width: 100%;
+        }
+    </style>
+    
 </head>
 <body>
-<div>
-      
-</div>
+    <div class="main_div">
+        <!-- Header -->
+        <div class="header clear">
+            <div class="header_left fl_l">
+                
+            </div>
+            <div class="header_right fl_r">
+                <div class="flag clear">
+                    <div class="flag_left fl_l">
+                        <h2>Mechi Multiple Campus</h2>
+                    </div>                    
+                    <div class="flag_right fl_r">
+                        <img src="https://i.ibb.co/xCHbgKS/banner-flag.jpg" alt="">
+                    </div>                
+
+                </div>
+                <div class="green_bakcground">
+                    <h3>Tribhuwan University</h3>
+                </div>
+                <div class="official">
+                    <a href="#">Official Website Of Education board</a>
+                </div>
+            </div>
+        </div>
+        <!-- Fast Heading -->
+        <div class="fast_heading">
+            <h1> Result Publication </h1>
+        </div>
+        <!-- Student Detials -->
+        <div class="student_detials">
+            <table>
+                <tr>
+                    <td>Roll NO</td>
+                    <td>527333</td>
+                    <td>Name</td>
+                    <td>MD. HAZRAT ALI</td>
+                </tr>   
+                <tr>
+                    <td>Board</td>
+                    <td>COMILLA</td>
+                    <td>Father's Name</td>
+                    <td>MD. ABDUL HAQUE</td>
+                </tr> 
+                <tr>
+                    <td>Program</td>
+                    <td>BCA</td>
+                    <td>Mother's Name</td>
+                    <td>MOST. AZIFA BEGUM</td>
+                </tr> 
+                <tr>
+                    <td>Type</td>
+                    <td>REGULAR</td>
+                    <td>Date of Birth</td>
+                    <td>03-06-1997</td>
+                </tr> 
+                <tr>
+                    <td>Result</td>
+                    <td class="bold">GPA=4.71</td>
+                    <td>Institue</td>
+                    <td>Mechi Multiple Campus</td>
+                </tr> 
+                <tr>
+                    <td>GPA</td>
+                    <td class="bold">4.71</td>                   
+                </tr>              
+            </table>           
+        </div>
+        <div class="second_heading">
+            <h2>Subject-Wise Grade/ Mark Sheet</h2>
+        </div>
+        
+        <div class="marksheet">
+            <table>
+               <tr>
+                   <th>Uid</th>
+                   <th>Subject</th>
+                   <th>Grade</th>
+               </tr>
+               <tr>
+                   <td>101</td>
+                   <td>C PROGRAMMING</td>
+                   <td>A+</td>
+               </tr>
+               <tr>
+                <td>107</td>
+                   <td>JAVA</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>109</td>
+                <td>MATHEMATIC</td>
+                <td>A-</td>
+            </tr>
+            <tr>
+                <td>145</td>
+                <td>SOCIOLOGY</td>
+                <td>A+</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>PYTHON</td>
+                <td>A+</td>
+            </tr>
+           
+            </table>
+        </div>
+        <div class="sech_div">
+            <a href="#">Serch Again</a>
+        </div>
+        <!-- footer -->
+        <div class="footer clear">
+            <div class="footer_left fl_l">
+                <p>&copy;2205-2015 Mechi Multiple Campus. All Right Reserved.</p>
+            </div>
+            <div class="footer_right fl_l">
+                <p>Powered by</p>
+            </div>
+            <div class="footer_image fl_r">
+                <img src="~/images/mmc.png" alt="">
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

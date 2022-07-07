@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,6 +19,7 @@ public class StudentModel
     public bool is_admitted { get; set; }
     public int sem_year { get; set; }
     public String email { get; set; }  
+    public int? roll_no { get; set; }
     /*public virtual ICollection<BookModel> BookModels { get; set; }*/
 
     [ForeignKey("pid")]

@@ -1,6 +1,6 @@
 @{
     ViewData["Title"] = "Home Page";
-    Layout = "_Layout_admin";
+    Layout = "_Layout_librarian";
 
 }
 
@@ -45,16 +45,16 @@
 
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <h5></h5>
+                        <h5>This book is currently issued by following students:</h5>
 
                         <table id="example2" class="table table-bordered table-hover table-responsive">
                             <thead>
                             <tr>
-                                <th>S.No</th>
-                                <th>Book id</th>
+                                <td>S.No</td>
                                 <th>Student Name</th>
                                 <th>Student id</th>
-                                <th>Issue Date</th>
+                                <th>Unique Bookid</th>
+                                <th>Issued date</th>
                                 <th>Expiry Date</th>
                                 <th>Is_returned</th>
                                 <th>Return Date</th>
@@ -74,10 +74,9 @@
                             {
                                 <tr>
                                     <td>@i</td>
-                                    <td>@item.BookModel.name</td>
-                                    <td>@item.uid</td>
                                     <td>@item.StudentModel.name</td>
                                     <td>@item.StudentModel.uid</td>
+                                    <td>@item.uid</td>
                                     <td>@item.issued_date</td>
                                     <td>@item.expiry_date</td>
                                     <td>@item.is_returned</td>
@@ -86,10 +85,13 @@
 
                                     <td>
 
-
-                                        <a asp-controller="AdminLibrary" asp-action="UpdateBook">
-                                            <button style="width: 70px;" type="button" class="btn btn-info">Confirm Return</button>
-                                        </a>
+   @if (item.is_returned != true)
+   {
+       
+       <a asp-controller="AdminLibrary" asp-action="ConfirmReturn" asp-route-id="@item.s_no">
+           <button style="width: 70px;" type="button" class="btn btn-info">Confirm Return</button>
+       </a>
+   }
 
                                     </td>
                                 </tr>

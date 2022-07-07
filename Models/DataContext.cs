@@ -1,4 +1,7 @@
+using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace mis_mmc.Models;
 
@@ -30,5 +33,11 @@ public class DataContext : DbContext
 
     public DbSet<BookModel> BookModels { get; set; }
     public DbSet<BookIssueModel> BookIssueModels { get; set; }
-
+    public DbSet<ExamModel> ExamModels { get; set; }
+    public DbSet<ExamDetailsModel> ExamDetailsModels { get; set; }
+    public DbSet<AssignmentModel> AssignmentModels { get; set; }
+    public DbSet<LmsModel> LmsModels { get; set; }
+    public DbSet<NtStaffsModel> NtStaffsModels { get; set; }
+    public DbSet<AssignmentReturnModel> AssignmentReturnModels { get; set; }
 }
+

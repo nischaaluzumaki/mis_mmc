@@ -1,3 +1,7 @@
+using System;
+using System.Linq;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using mis_mmc.Models;
 using Newtonsoft.Json;
@@ -72,6 +76,20 @@ public class LoginController : Controller
             HttpContext.Session.SetString("role",user_List[0].role );
             return RedirectToAction("Index", "TeacherHome");
         }
+         else if (user_List.Count() == 1 && user_List[0].password.Equals(password) &&
+                         user_List[0].role.Equals("librarian"))
+                {
+        
+                    HttpContext.Session.SetString("User",
+                        JsonConvert.SerializeObject(user_List[0])); //note argument should be in strings only.
+          
+                    HttpContext.Session.SetString("Logged", "true");
+                    HttpContext.Session.SetString("password", password);
+                    HttpContext.Session.SetString("email", email);
+                    HttpContext.Session.SetString("role",user_List[0].role );
+                    return RedirectToAction("Index", "AdminLibrary");
+                }
+
 
 
 

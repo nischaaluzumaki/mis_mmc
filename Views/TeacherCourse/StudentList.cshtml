@@ -1,18 +1,118 @@
-@model TModel
-
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_Teacher";
+
 }
 
-<!DOCTYPE html>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Students list of @ViewBag.coursename</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Teacher</a>
+                    </li>
+                    <li class="breadcrumb-item active"> Student list </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                       
+                        <form class="search-bar" style="float: left; ">
+                            <input type="text" class="form-control" placeholder="Enter keywords" style="float: left">
+                            <a href="">
+                                <i class="icon-magnifier"></i>
+                            </a>
+                        </form>
+                     
+                        
+                        
+
+                    </div>
+                   
+
+-
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                       
+                        <table id="example2" class="table table-bordered table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Unique Id</th>
+                                <th>Roll_no</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Date of Birth</th>
+                                <th>Contact no</th>
+                                <th>Address</th>
+                                <th>Gender</th>
+                                <th>Photo</th>
+                                
+                                
+                                
+                            </tr>
+                            </thead>
+                            <tbody>
+
+  @{
+                                   int i = 1;
+                               }
+                            
+                            @foreach (var item in ViewBag.data)
+
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    
+                                    <td>@item.uid</td>
+                                    <td>@item.roll_no</td>
+                                    <td>@item.name</td>
+                                    <td>@item.email</td>
+                                    <td>@item.dob</td>
+                                    <td>@item.phone</td>
+                                    <td>@item.address</td>
+                                    <td>@item.gender</td>
+                                    
+                                    <td><img src="@item.file " style="height: 50px; width : 50px;"></td>
+                                    
+
+
+
+
+                                 
+                                </tr>
+                            }
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.container-fluid -->
+</section>

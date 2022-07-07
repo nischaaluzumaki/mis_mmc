@@ -1,18 +1,61 @@
-@model TModel
-
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_student";
+
 }
+ @model mis_mmc.Models.AssignmentReturnModel
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Return Assignment </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Assignment</a>
+                    </li>
+                    
+                    <li class="breadcrumb-item active"> Return Assignment</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
 
-<!DOCTYPE html>
+        <div class="row">
+            <div class="col-12">
+               <div class="card">
+                         <div class="card-body">
+                         <div class="card-title">Submit Assignment </div>
+                         <hr>
+                         <form method="post" asp-controller="StudentAssignment" asp-action="ReturnAssignment"enctype="multipart/form-data" >
+                            
+                             <div class="form-group">
+                                 <label for="input-5">Input File</label>
+                                 <input type="file" class="form-control" id="input-5" name="file">
+                             </div>
+                             
+                             <button type="submit" class="btn btn-light px-5"> Submit</button>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+                         </form>
+                       </div>
+                       </div>
+                    </div>
+
+                <!-- /.card -->
+
+
+                <!-- /.card-header -->
+
+              
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+   
+
+    <!-- /.container-fluid -->
+</section>

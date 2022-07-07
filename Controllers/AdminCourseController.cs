@@ -1,3 +1,8 @@
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +28,15 @@ public class AdminCourseController : Controller
         await file.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
         return "/" + folderpath;
     }
+    public int Getid ()
+
+    {
+
+        Random r = new Random();
+    
+        return r.Next(10000,99999);
+    
+    }
     public IActionResult Index()
     {
         var data = _context.CourseModels.Include(f=>f.ProgramModel).ToList();
@@ -45,7 +59,7 @@ public class AdminCourseController : Controller
      public async Task<IActionResult> AddCourse(CourseModel courseModel, IFormFile file)
      {
          string folder = "file/";
-         courseModel.file = await UploadImage(folder, file);
+         courseModel.uid = "mmcs" + Getid().ToString();
          _context.CourseModels.Add(courseModel);
          _context.SaveChanges();
          return RedirectToAction("Index");
@@ -87,7 +101,7 @@ public class AdminCourseController : Controller
          return RedirectToAction("Index"); 
      }
 
-     public IActionResult DeleteCorse(int id)
+     public IActionResult DeleteCourse(int id)
      {
          var data = _context.CourseModels.Find(id);
          _context.CourseModels.Remove(data);
@@ -97,6 +111,20 @@ public class AdminCourseController : Controller
      public IActionResult AppointLecturer()
      {
          return View();
+     }
+
+     [HttpPost]
+     [ValidateAntiForgeryToken]
+     public async Task<IActionResult> AppointLecturer(string course, string teacher)
+     {
+         string tid = _context.TeacherModels.Where(x => x.uid.Equals(teacher)).First().s_no.ToString();
+         string tname = _context.TeacherModels.Where(x => x.uid.Equals(teacher)).First().name.ToString();
+         string cid = _context.CourseModels.Where(x => x.uid.Equals(course)).First().s_no.ToString();
+         var c = _context.CourseModels.Where(p => p.s_no.ToString() == cid).FirstOrDefault();
+         c.tid = int.Parse(tid);
+         c.lecturer = tname;
+         await _context.SaveChangesAsync();
+         return RedirectToAction("Index"); 
      }
      public IActionResult UpdateLecturer()
      {

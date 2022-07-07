@@ -55,6 +55,7 @@
                             <thead>
                             <tr>
                                 <th>S.No</th>
+                                <th>Uid</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Date of Birth</th>
@@ -78,6 +79,7 @@
                             {
                                 <tr>
                                     <td>@i</td>
+                                    <td>@item.uid</td>
                                     <td>@item.name</td>
                                     <td>@item.email</td>
                                     <td>@item.dob</td>
@@ -97,6 +99,10 @@
                                             <a asp-action="UpdateStudent" asp-controller="AdminStudent">
                                                 <button style="width: 70px;" type="button" class="btn btn-info"> Info</button>
                                             </a>
+                                            <a asp-action="PrintId" asp-controller="AdminStudent" asp-route-id="@item.s_no">
+                                                <button style="width: 70px;" type="button" class="btn btn-info"> PrintId</button>
+                                            </a>
+                                            
                                             
                                         }
                                        

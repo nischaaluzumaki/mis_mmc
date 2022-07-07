@@ -1,9 +1,9 @@
 @{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout_admin";
-
+   
 }
-
+@model mis_mmc.Models.ExamModel
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -31,7 +31,7 @@
                          <div class="card-body">
                          <div class="card-title">Exam Form</div>
                          <hr>
-                         <form>
+                         <form method="post" asp-action="AddExam">
                            
                              
                              <div class="form-group">
@@ -48,16 +48,12 @@
                                  </select>
                              </div>
                              <div class="form-group">
-                                 <label for="input-1">Program</label>
-                                 <input type="text" class="form-control" id="input-1" placeholder="Enter Program Name" name="program" required list="faculty">
-                                 <datalist id="faculty">
-                                     <option > boston </option>
-                                     <option > Cambridge</option>
-                                 </datalist>
+                                 <label asp-for="pid" class="control-label">Program</label>
+                                 <select asp-for="pid" class ="form-control" asp-items="ViewBag.Program"></select>
                              </div>
                              <div class="form-group">
                                  <label for="input-2">Semester/year</label>
-                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="semyear" required list="teacher">
+                                 <input type="text" class="form-control" id="input-2" placeholder="Enter semester/year" name="sem_year" required list="teacher">
                                  <datalist id="teacher">
                                      <option value="Boston"/>
                                      <option value="Cambridge"/>

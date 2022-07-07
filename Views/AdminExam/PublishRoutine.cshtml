@@ -1,18 +1,180 @@
-@model TModel
-
-@{
-    Layout = null;
-}
-
+@{ Layout = null;}
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title>title</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUB - Class Routine (Spring Semister) </title>
+    <style type="text/css">
+        body{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                min-height: 100vh;
+                align-items: center;
+            }
+            .container{
+                padding: 40px;
+                box-shadow: 0 0 20px #61ab30;
+                border-radius: 5px;
+                margin: 10px;
+            }
+            .container .class-heading{
+                padding: 10px 20px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+            }
+            h1{
+                font-size: 2rem;
+                line-height: 1rem;
+                color: #61ab30;
+            }
+            h2{
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+                color: #61ab30;
+            }
+            .container .day {
+                padding: 7px 10px;
+                border: 1px solid #ccc;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 0.5px;
+                font-size: 1.5rem;
+                background: #61ab30;
+                color: #fff;
+            }
+            .container .sub-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container .sub-container li {
+                padding: 7px 10px;
+                border: 1px solid #ccc;
+                list-style: none;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+            .container .sub-container li.list-head{
+                background: #61ab30;
+                color: #fff;
+                font-weight: bold;
+        
+            }
+        
+            #List-1{
+                width: 100px;
+                height: 40px;
+            }
+            #List-2{
+                width:250px ;
+                height: 40px;
+            }
+            #List-3{
+                width:60px ;
+                height: 40px;
+            }
+            #List-4{
+                width: 200px;
+                height: 40px;
+            }
+            #List-5{
+                width:100px ;
+                height: 40px;
+            }
+    </style>
+    
 </head>
 <body>
-<div>
-      
-</div>
+
+<div class="container">
+
+    <div class="class-heading">
+        
+        <h1>Mechi Multiple Campus</h1>
+        <h2>Exam Rutine Of BCA 6th sem</h2>
+    </div>
+
+       <!-- Monday - Wednesday -->
+
+        <div class="day" style="border-radius: 5px 5px 0 0;">Monday - Wednesday</div>
+        <div class="sub-container">
+            <li class="list-head" id="List-1" style="height: auto;">Course ID</li>
+            <li class="list-head" id="List-2" style="height: auto;">Course Name</li>
+            <li class="list-head" id="List-3" style="height: auto;">Section</li>
+            <li class="list-head" id="List-4" style="height: auto;">Time</li>
+            <li class="list-head" id="List-5" style="height: auto;">Room No</li>
+        </div>
+
+        <div class="sub-container">
+            <li id="List-1">MAT 103-CSE(181)</li>
+            <li id="List-2">Digital Logic</li>
+            <li id="List-3">213-DA</li>
+            <li id="List-4">10:00 AM - 11:30 AM</li>
+            <li id="List-5">B-412</li>
+        </div>
+
+        <div class="sub-container">
+            <li id="List-1">PHY 103-CSE(181)</li>
+            <li id="List-2">Python</li>
+            <li id="List-3">213-DA</li>
+            <li id="List-4">1:30 PM - 3:00 PM</li>
+            <li id="List-5">A-412</li>
+        </div>
+
+        <div class="sub-container">
+            <li id="List-1">CSE 103-CSE(181)</li>
+            <li id="List-2">Structured Programming</li>
+            <li id="List-3">213-DC</li>
+            <li id="List-4">3:00 PM - 4:30 PM</li>
+            <li id="List-5">B-411</li>
+        </div>
+
+        <div class="sub-container">
+            <li id="List-1">EAP 101-CSE(181)</li>
+            <li id="List-2">Advanced .net programming</li>
+            <li id="List-3">213-DC</li>
+            <li id="List-4">4:30 PM - 6:00 PM</li>
+            <li id="List-5">B-301 Virtual</li>
+        </div>
+
+           <!-- Tue-Tue -->
+
+        <div class="day">Tuesday - Tuesday</div>
+        <div class="sub-container">
+            <li class="list-head" id="List-1" style="height: auto;">Course ID</li>
+            <li class="list-head" id="List-2" style="height: auto;">Course Name</li>
+            <li class="list-head"id="List-3" style="height: auto;">Section</li>
+            <li class="list-head" id="List-4" style="height: auto;">Time</li>
+            <li class="list-head" id="List-5" style="height: auto;">Room No</li>
+        </div>
+
+        <div class="sub-container">
+            <li id="List-1">PHY 104-CSE(201)</li>
+            <li id="List-2">Numerical Methods</li>
+            <li id="List-3">213-DH</li>
+            <li id="List-4">8:30 AM - 10:00 AM<br>10:00 AM - 11:30 AM</li>
+            <li id="List-5">B-806 CSE LAB</li>
+        </div>
+
+        <div class="sub-container">
+            <li id="List-1" style="border-radius: 0 0 0 5px;">CSE 104-CSE(181)</li>
+            <li id="List-2">Databse Programming</li>
+            <li id="List-3">213-DC</li>
+            <li id="List-4">11:30 AM - 1:00 PM<br>1:30 PM - 3:00 PM</li>
+            <li id="List-5" style="border-radius: 0 0 5px 0">B-801 CSE LAB</li>
+        </div>
+
+       </div>
+
+
+
 </body>
 </html>

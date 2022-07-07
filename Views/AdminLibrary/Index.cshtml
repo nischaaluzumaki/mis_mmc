@@ -1,6 +1,6 @@
 @{
     ViewData["Title"] = "Home Page";
-    Layout = "_Layout_admin";
+    Layout = "_Layout_librarian";
 
 }
 
@@ -87,7 +87,7 @@
                                     <td>
                                         @if (item.is_issued == true)
                                         {
-                                            <a >
+                                            <a asp-controller="AdminLibrary" asp-action="IssueStudents" asp-route-id="@item.s_no">
                                                 <button  type="button" class="btn btn-info"> Issue Info</button>
                                             </a>
                                                                                 

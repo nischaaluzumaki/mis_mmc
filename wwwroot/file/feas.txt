@@ -1,0 +1,83 @@
+Fesibility study is a step towards identification of the candidate system as a feasiable product.First the studies often pre-suppose that when the feasibility document is being prepared, the analyst is in a position to evaluate solutions. Second,most studies tend to overlook the confusion inhearnt in system development
+–
+ the constraints and the assumed attitudes.
+
+
+Economic Feasiblility
+
+ The financial and the economic questions during the preliminary investigation are verified to estimate the following:
+
+ 
+-The cost to conduct a full system investigation.
+
+ 
+-The cost of hardware and software for the class of application being considered.
+
+ 
+-The benefits in the form of reduced cost.
+
+ 
+-The proposed system will give the minute information, as a result the performance is improved which in turn may be expected to provide increased profits.
+
+-This feasibility checks whether the system can be developed with the available funds. College MIS System does not require enormous amount of money to bedeveloped. This can be done economically if planned judicially, so it is economicallyfeasible. The cost of project depends upon thenumber of manhours required.
+
+Technical Feasibility
+
+A study of resource availability that may affect the ability to achieve an acceptable system. This evaluation determines whether the technologyneeded for the proposed system is available or not.
+
+ 
+-Can the work for the project be done with current equipment existing softwaretechnology & available personal?
+
+ 
+-Can the system be upgraded if developed?
+ 
+-If new technology is needed then what can bedeveloped? This is concerned with specifyingequipment and software that will successfullysatisfy the user requirement. The technicalneeds of the system may include:
+
+ Front -end and Back end selection
+
+ An important issue for the development of a projectis the selection of suitable front-end and back-end.When we decided to develop the project we wentthrough an extensive study to determine the mostsuitable platform that suits the needs of the organization as well as helps in development of theproject.The aspects of our study included the following factors.
+
+Front end selection
+
+1. It must have a graphical user interface that assistsemployees that are not from IT background.
+2. Scalability and extensibility.
+3. Flexibility.
+4. Robustness.
+5. According to the organization requirement andthe culture.
+6. Must provide excellent reporting features withgood printing support.
+7. Platform independent.
+8. Easy to debug and maintain.
+9. Event driven programming facility.
+10. Front end must support some popular back endlike Oracle 10g. 
+
+According to the above stated features we selected ASP.NET core MVC,HtML, css bootstrap and jquery as the front-end fordeveloping our project.
+
+Back-end Selection
+1. Multiple user support.
+2. Efficient data handling.
+3. Provide inherent features for security.
+4. Efficient data retrieval and maintenance.
+5. Stored procedures.
+6. Popularity.
+7. Operating System compatible.
+8. Easy to install.
+9. Various drivers must be available.
+10. Easy to implant with the Front-end.
+According to above stated features we selected MySQL and C# as the backend.
+
+The technical feasibility is frequently the mostdifficult area encountered at this stage. It is essentialthat the process of analysis and definition beconducted in parallel with an assessment totechnical feasibility. It centers on the existing
+computer system (hardware, software etc.) and to what extent it can support the proposed system.
+
+
+
+
+Operational Feasibility
+
+It is mainly related to human organizations andpolitical aspects. The points to be considered are:
+
+ 
+-What changes will be brought with the system?
+-What organization structures are disturbed?
+-What new skills will be required? Do the existing staff members have these skills? If not, can they be trained in due course of time?
+
+The system is operationally feasible as it very easyfor the End users to operate it. It only needs basicinformation about Windows platform.

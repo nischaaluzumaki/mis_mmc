@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,6 +9,7 @@ public class ProgramModel
     
     [Key] 
     public int s_no { get; set; }
+    public string uid { get; set; }
     public string name { get; set; }
     public string description { get; set; }
     public string? file { get; set; }
@@ -16,9 +18,9 @@ public class ProgramModel
     public string system { get; set; }
     public string? director { get; set; }
     public int sem_year { get; set; }
-    public virtual ICollection<CourseModel> CourseModels { get; set; }
-    public virtual ICollection<StudentModel> StudentModels { get; set; }
-    /*public virtual ICollection<BookModel> BookModels { get; set; }*/
+    public virtual List<CourseModel> CourseModels { get; set; }
+    public virtual List<StudentModel> StudentModels { get; set; }
+    public virtual List<BookModel> BookModels { get; set; }
     [ForeignKey("fid")]
     public virtual FacultyModel FacultyModel { get; set; }  
     public int fid { get; set; }

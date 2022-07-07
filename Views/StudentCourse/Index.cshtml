@@ -1,18 +1,67 @@
-@model TModel
-
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout_student";
+
 }
 
-<!DOCTYPE html>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>My Courses</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <a href="#">Student</a>
+                    </li>
+                    <li class="breadcrumb-item active"> My Courses</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+    
+    
+    
+        <h5>Bca 6th sem</h5>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+        <div class="row">
+            @foreach (var item in ViewBag.data)
+            {
+
+
+                <div class="card text-white bg-primary col-lg-4" style="max-width: 18rem;margin-left: 20px;">
+                    <div class="card-header">uid=@item.uid</div>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.name</h5>
+                        <div class="btn-group-md">
+                        <btn class="btn btn-success">Details</btn>
+                            <a asp-controller="StudentAssignment" asp-action="Index" asp-route-id="@item.s_no"><btn class="btn btn-success">Assignments</btn></a>
+                        <btn class="btn btn-success">Learning Materials</btn>
+                        <btn class="btn btn-success">Attendence</btn>
+                    </div>
+                        
+                    </div>
+                </div>
+            }
+
+          
+
+            <!-- /.card -->
+
+
+            <!-- /.card-header -->
+
+            <!-- /.card -->
+        </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+ 
+
+
+    <!-- /.container-fluid -->
+</section>

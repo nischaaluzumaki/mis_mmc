@@ -48,7 +48,7 @@
             position: absolute;
             top: 60px;
             left: 102px;
-            object-fit: content;
+            object-fit: contain;
             border:3px solid rgba(255 , 255 , 255 , .2);
             
         }
@@ -65,7 +65,7 @@
             top: 212px;
             text-transform:capitalize;
             font-size: 11px;
-            text-emphasis: spacing;
+            text-emphasis: black;
             margin-left: 5px;
         }
         .signature{
